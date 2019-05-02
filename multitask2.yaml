@@ -5,7 +5,6 @@ steps:
 - build: -t {{.Values.regLatest}}/hello-world:{{.Run.Date}} -f Dockerfile2 .
   # Run image 
 - cmd: -d -p 8080:80 -t {{.Run.Registry}}/hello-world:{{.Run.ID}} 
-- cmd: curl http://localhost:8080
 - push:
   - {{.Run.Registry}}/hello-world:{{.Run.ID}}
   - {{.Values.regLatest}}/hello-world:{{.Run.Date}}
