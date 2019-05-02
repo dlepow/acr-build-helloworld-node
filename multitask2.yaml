@@ -1,11 +1,10 @@
 version: v1.0.0
 steps:
   # build target images
-- build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile2 .
-- build: -t {{.Values.regLatest}}/hello-world:{{.Run.Date}} -f Dockerfile2 .
+- build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile 
+- build: -t {{.Values.regLatest}}/hello-world:{{.Run.Date}} -f Dockerfile 
   # Run image 
 - cmd: -d -p 8080:80 --name test -t {{.Run.Registry}}/hello-world:{{.Run.ID}} 
-- cmd: docker exec -i test curl -l localhost:80
 - push:
   - {{.Run.Registry}}/hello-world:{{.Run.ID}}
   - {{.Values.regLatest}}/hello-world:{{.Run.Date}}
