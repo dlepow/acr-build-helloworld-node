@@ -1,8 +1,8 @@
 version: v1.0.0
 steps:
   # build target images
-- build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile 
-- build: -t {{.Values.regLatest}}/hello-world:{{.Run.Date}} -f Dockerfile 
+- build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile .
+- build: -t {{.Values.regLatest}}/hello-world:{{.Run.Date}} -f Dockerfile .
   # Run image 
 - cmd: -d -p 8080:80 --name test -t {{.Run.Registry}}/hello-world:{{.Run.ID}} 
 - push:
