@@ -4,6 +4,7 @@ steps:
 - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile .
 # Run image 
 - cmd: -d -p 8080:80 --name test -t {{.Run.Registry}}/hello-world:{{.Run.ID}} 
+- cmd: docker stop test
 # Push image
 - push:
   - {{.Run.Registry}}/hello-world:{{.Run.ID}}
