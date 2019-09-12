@@ -10,7 +10,7 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'db3b6888-593b-4915-864b-69a88fa03a91'
+  dockerRegistryServiceConnection: 'd7e8bc21-33b4-4f38-9981-12d614f5618b'
   imageRepository: 'dlepowacrbuildhelloworldnode'
   containerRegistry: 'danlep0820.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile-app'
