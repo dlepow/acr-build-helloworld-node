@@ -29,11 +29,22 @@ stages:
       vmImage: $(vmImageName)
     steps:
     - task: Docker@2
-      displayName: Build and push an image to container registry
+      displayName: Login to ACR
       inputs:
-        command: buildAndPush
-        repository: $(imageRepository)
+        command: login
+        containerRegistry: $(dockerRegistryServiceConnection)
+    - task: Docker@2
+      displayName: Build
+      inputs:
+        command: build
         dockerfile: $(dockerfilePath)
+        repository: $(imageRepository)
+        arguments: REGISTRY_NAME=danlep0820.azurecr.io
+    - task: Docker@2
+      displayName: Push
+      inputs:
+        command: push
+        repository: $(imageRepository)
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
