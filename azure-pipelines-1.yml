@@ -39,7 +39,7 @@ stages:
         command: build
         dockerfile: $(dockerfilePath)
         repository: $(imageRepository)
-        arguments: --build-arg REGISTRY_NAME=danlep0820.azurecr.io
+        arguments: --build-arg REGISTRY_NAME=danlep0912a.azurecr.io
     - task: Docker@2
       displayName: Push
       inputs:
