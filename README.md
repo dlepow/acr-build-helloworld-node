@@ -60,9 +60,9 @@ To reduce dependencies on public content, we recommend that you maintain copies 
       --password <Docker Hub password or token>
     ```
 
-1. Update the Dockerfile to reference the base image in the private registry. In the sample, update the `ARG` statement with the fully qualified registry URL, such as *myregistry.azurecr.io*:
+1. Update the Dockerfile to reference the base image in the private registry. In the sample, update the `ARG` statement with the fully qualified registry URL, such as *myregistry.azurecr.io/*, including the `/` at the end:
     ```azurecli
-    ARG REGISTRY_FROM_URL=myregistry.azurecr.io
+    ARG REGISTRY_FROM_URL=myregistry.azurecr.io/
     FROM ${REGISTRY_FROM_URL}<base image:tag>
     [...]
     ```
